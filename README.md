@@ -1,4 +1,5 @@
 规则关键词：feature engineering, PCA, MECE, dict, clutering
+Next step: reorg the category, 1. I think I forgot PCA in prompt. 2. subcategory first and then aggregate to category
 
 ### Operator Optimization (149)
 #### Fusion (62)
