@@ -1,1 +1,637 @@
 归纳规则关键词：PCA, MECE, Clustering
+
+### Operator Optimization (149)
+#### Fusion (62)
+- [#65971](https://github.com/PaddlePaddle/Paddle/pull/65971): [OneDNN][PIR] Add matmul_reshape_add pass for mul op
+- [#65668](https://github.com/PaddlePaddle/Paddle/pull/65668): [OneDNN][PIR] Add conv2d_transpose_bn_fuse_pass
+- [#63812](https://github.com/PaddlePaddle/Paddle/pull/63812): [OneDNN][PIR] Add operator_reshape_onednn_fuse_pass
+- [#63811](https://github.com/PaddlePaddle/Paddle/pull/63811): [OneDNN][PIR] Add operator_scale_onednn_fuse_pass
+- [#63592](https://github.com/PaddlePaddle/Paddle/pull/63592): [OneDNN][PIR] Add operator_unsqueeze_onednn_fuse_pass
+- [#63516](https://github.com/PaddlePaddle/Paddle/pull/63516): [OneDNN][PIR] Add elementwise_act_onednn_fuse_pass
+- [#63145](https://github.com/PaddlePaddle/Paddle/pull/63145): [OneDNN][PIR] MKLDNN Conv activation fusion pass
+- [#63141](https://github.com/PaddlePaddle/Paddle/pull/63141): [OneDNN][PIR] Add squeeze_transpose_onednn_fuse_pass
+- [#62993](https://github.com/PaddlePaddle/Paddle/pull/62993): [OneDNN][PIR] conv_concat_activation_mkldnn_fuse_pass
+- [#62877](https://github.com/PaddlePaddle/Paddle/pull/62877): [OneDNN][PIR] MKLDNN Conv activation fusion pass
+- [#62713](https://github.com/PaddlePaddle/Paddle/pull/62713): [OneDNN][PIR] conv elementwise add mkldnn fuse pass
+- [#51087](https://github.com/PaddlePaddle/Paddle/pull/51087): Fused softplus
+- [#50751](https://github.com/PaddlePaddle/Paddle/pull/50751): Fused ops converter
+- [#50743](https://github.com/PaddlePaddle/Paddle/pull/50743): oneDNN kernels code cleanup
+- [#50428](https://github.com/PaddlePaddle/Paddle/pull/50428): Fused elementwise_(mul/div)
+- [#50094](https://github.com/PaddlePaddle/Paddle/pull/50094): Rewrite multi_gru_fuse_pass_tester & multi_gru_seq_fuse_pass_tester
+- [#50021](https://github.com/PaddlePaddle/Paddle/pull/50021): Extract fused_transpose op dedicated for oneDNN fuse passes
+- [#49582](https://github.com/PaddlePaddle/Paddle/pull/49582): Rewrite conv testers from cpp to python
+- [#49580](https://github.com/PaddlePaddle/Paddle/pull/49580): Rewrite mat reshape transpose testers
+- [#49515](https://github.com/PaddlePaddle/Paddle/pull/49515): Replace matmul(v2) with fused_matmul during oneDNN fuse passes
+- [#49509](https://github.com/PaddlePaddle/Paddle/pull/49509): fuse quantize+transpose and transpose+dequantize
+- [#49488](https://github.com/PaddlePaddle/Paddle/pull/49488): fuse pass testers rewritten from cpp to python UT framework
+- [#49278](https://github.com/PaddlePaddle/Paddle/pull/49278): Rewrite conv activation mkldnn fuse pass tester
+- [#49277](https://github.com/PaddlePaddle/Paddle/pull/49277): Rewrite batch norm act fuse pass tester
+- [#49108](https://github.com/PaddlePaddle/Paddle/pull/49108): Replace matmul with matmul_v2 during oneDNN fuse passes
+- [#49105](https://github.com/PaddlePaddle/Paddle/pull/49105): Rewrite scale matmul mkldnn fuse pass tester
+- [#48400](https://github.com/PaddlePaddle/Paddle/pull/48400): eltwises + scale fuse pass
+- [#48162](https://github.com/PaddlePaddle/Paddle/pull/48162): [PHI] Migrate matmul kernel
+- [#47690](https://github.com/PaddlePaddle/Paddle/pull/47690): [CHERRY-PICK] Added caching to oneDNN FC and op+unsqueeze2 and op+reshape2 fuse passes
+- [#47420](https://github.com/PaddlePaddle/Paddle/pull/47420): [cherry-pick] FC/matmul(v2) + scale fuse pass (#47127)
+- [#47313](https://github.com/PaddlePaddle/Paddle/pull/47313): Added operator+unsqueeze2 oneDNN fuse pass 
+- [#47127](https://github.com/PaddlePaddle/Paddle/pull/47127): FC/matmul(v2) + scale fuse pass
+- [#47006](https://github.com/PaddlePaddle/Paddle/pull/47006): Migrate old C++ unit tests to Python framework
+- [#46917](https://github.com/PaddlePaddle/Paddle/pull/46917): add fc-residual quantization
+- [#46760](https://github.com/PaddlePaddle/Paddle/pull/46760): add logging to fc residual fuse pass
+- [#45671](https://github.com/PaddlePaddle/Paddle/pull/45671): Fc residual quantization
+- [#45183](https://github.com/PaddlePaddle/Paddle/pull/45183): FC + activation fuse passes
+- [#45089](https://github.com/PaddlePaddle/Paddle/pull/45089): Extend conv_concat_relu to support all activations
+- [#44941](https://github.com/PaddlePaddle/Paddle/pull/44941): Offload calculations from matmul op to fuse pass
+- [#44655](https://github.com/PaddlePaddle/Paddle/pull/44655): Matmuls with activation and elementwise_add fuses
+- [#44348](https://github.com/PaddlePaddle/Paddle/pull/44348): conv2d_transpose + activation(s) fuse pass
+- [#44185](https://github.com/PaddlePaddle/Paddle/pull/44185): Unify and generalize activation fuse passes
+- [#43519](https://github.com/PaddlePaddle/Paddle/pull/43519): matmul+activation fuse pass
+- [#43430](https://github.com/PaddlePaddle/Paddle/pull/43430): Re-enable fc_lstm_fuse_pass
+- [#43382](https://github.com/PaddlePaddle/Paddle/pull/43382): Generalize conv+activation fuse pass
+- [#43198](https://github.com/PaddlePaddle/Paddle/pull/43198): Matmul post-ops for fuses
+- [#42732](https://github.com/PaddlePaddle/Paddle/pull/42732): matmul and matmul_v2 refactor
+- [#41776](https://github.com/PaddlePaddle/Paddle/pull/41776): FC+elementwise_add (residual connection)
+- [#41286](https://github.com/PaddlePaddle/Paddle/pull/41286): conv + elementwise_add refactor
+- [#40834](https://github.com/PaddlePaddle/Paddle/pull/40834): FC + elementwise_add (Residual connection)
+- [#40005](https://github.com/PaddlePaddle/Paddle/pull/40005): refactoring proposal conv+elementwise_add (residual)
+- [#39340](https://github.com/PaddlePaddle/Paddle/pull/39340): [UT] mish op, conv+mish, fc+mish fuse passes
+- [#39157](https://github.com/PaddlePaddle/Paddle/pull/39157): Mish unittests
+- [#38505](https://github.com/PaddlePaddle/Paddle/pull/38505): Turnon fc_mkldnn_pass fc_act_mkldnn_fuse_pass by default
+- [#37847](https://github.com/PaddlePaddle/Paddle/pull/37847): add reshape+transpose+matmul_v2 only
+- [#37619](https://github.com/PaddlePaddle/Paddle/pull/37619): add matmul_v2_transpose_reshape_fuse_pass to quant2_int8_mkldnn_pass.py
+- [#36869](https://github.com/PaddlePaddle/Paddle/pull/36869): Added conv + hard_sigmoid oneDNN fuse pass
+- [#36759](https://github.com/PaddlePaddle/Paddle/pull/36759): Added reshape+transpose+matmul_v2 fuse pass
+- [#36657](https://github.com/PaddlePaddle/Paddle/pull/36657): Added softplus + activation oneDNN fuse pass
+- [#36541](https://github.com/PaddlePaddle/Paddle/pull/36541): Add an elementwise + activation fusion pass.
+- [#36481](https://github.com/PaddlePaddle/Paddle/pull/36481): Added matmul_v2+transpose+reshape fuse pass
+- [#35382](https://github.com/PaddlePaddle/Paddle/pull/35382): Collect LSTM quant model scales and save LSTM int8
+#### Speed/Performance (1)
+- [#33642](https://github.com/PaddlePaddle/Paddle/pull/33642): [cherry-pick] Bump up to oneDNN v2.3 (#33229)
+#### Operator (86)
+- [#70628](https://github.com/PaddlePaddle/Paddle/pull/70628): [OneDNN][PIR] add permitted input name filter for orphaned op
+- [#60922](https://github.com/PaddlePaddle/Paddle/pull/60922): [OneDNN] Add cache in Deconvolution kernel
+- [#59744](https://github.com/PaddlePaddle/Paddle/pull/59744): [OneDNN] Restrictions on matmul broadcast optimiztion
+- [#52463](https://github.com/PaddlePaddle/Paddle/pull/52463): [ONEDNN] Upgrade oneDNN version to v3.1
+- [#52208](https://github.com/PaddlePaddle/Paddle/pull/52208): [oneDNN]rename macro to PADDLE_WITH_DNNL
+- [#51995](https://github.com/PaddlePaddle/Paddle/pull/51995): Rewrite quant2_int8_nlp_comparison test
+- [#50467](https://github.com/PaddlePaddle/Paddle/pull/50467): Softmax quantization
+- [#50307](https://github.com/PaddlePaddle/Paddle/pull/50307): Remove tests with save_quant_model.py
+- [#48673](https://github.com/PaddlePaddle/Paddle/pull/48673): Add int8 kernel to conv_transpose
+- [#48539](https://github.com/PaddlePaddle/Paddle/pull/48539): [PHI] OneDNN version of Copy
+- [#48299](https://github.com/PaddlePaddle/Paddle/pull/48299): Migrate mul_mkldnn_op to phi matmul_kernel
+- [#47844](https://github.com/PaddlePaddle/Paddle/pull/47844): Modified mem_desc() to return reference to Tensor::memory::desc to avoid copying
+- [#47782](https://github.com/PaddlePaddle/Paddle/pull/47782): Added optimization pass for oneDNN layernorm kernel
+- [#47748](https://github.com/PaddlePaddle/Paddle/pull/47748): [PHI] traspose2 kernel migration
+- [#47617](https://github.com/PaddlePaddle/Paddle/pull/47617): slice & mul & requantize tensors to use mem_desc
+- [#47449](https://github.com/PaddlePaddle/Paddle/pull/47449): Split quant
+- [#47422](https://github.com/PaddlePaddle/Paddle/pull/47422): [phi] migrate prelu
+- [#47314](https://github.com/PaddlePaddle/Paddle/pull/47314): Minor oneDNN split optimization
+- [#47311](https://github.com/PaddlePaddle/Paddle/pull/47311): Update of PHI transpose_grad
+- [#47080](https://github.com/PaddlePaddle/Paddle/pull/47080): Added workaround for elementwise oneDNN kernel
+- [#46873](https://github.com/PaddlePaddle/Paddle/pull/46873): [cherry-pick] [PHI] transpose2_grad op migration (#46139)
+- [#46759](https://github.com/PaddlePaddle/Paddle/pull/46759): add function FindInputNameByVarName
+- [#46730](https://github.com/PaddlePaddle/Paddle/pull/46730): [cherry-pick] [PHI] Sum op migration (#46239)
+- [#46729](https://github.com/PaddlePaddle/Paddle/pull/46729): [cherry-pick] [PHI] Migrate sgd and stack oneDNN kernels (#46374)
+- [#46727](https://github.com/PaddlePaddle/Paddle/pull/46727): [cherry-pick] [PHI] Migrate concat+grad, expand+grad, fill_constant … oneDNN kernels (#45863)
+- [#46726](https://github.com/PaddlePaddle/Paddle/pull/46726): [cherry-pick] [PHI] Migrate slice, slice_grad, split, pad and pad3d oneDNN kernels (#46101)
+- [#46724](https://github.com/PaddlePaddle/Paddle/pull/46724): [cherry-pick] [PHI] Shape op migration (#46051)
+- [#46620](https://github.com/PaddlePaddle/Paddle/pull/46620): OneDNN md-in-tensor refactoring: Added support for md in transpose
+- [#46608](https://github.com/PaddlePaddle/Paddle/pull/46608): Requantize to use Memory Desc in Tensors
+- [#46462](https://github.com/PaddlePaddle/Paddle/pull/46462): add reshape2_grad to phi
+- [#46459](https://github.com/PaddlePaddle/Paddle/pull/46459): Conv grad to use set_mem_desc()
+- [#46331](https://github.com/PaddlePaddle/Paddle/pull/46331): [PHI] migrating Squeeze2 and reshape2
+- [#46239](https://github.com/PaddlePaddle/Paddle/pull/46239): [PHI] Sum op migration
+- [#46139](https://github.com/PaddlePaddle/Paddle/pull/46139): [PHI] transpose2_grad op migration
+- [#46051](https://github.com/PaddlePaddle/Paddle/pull/46051): [PHI] Shape op migration
+- [#45624](https://github.com/PaddlePaddle/Paddle/pull/45624):  updating mul and matmul with set_mem_desc
+- [#44863](https://github.com/PaddlePaddle/Paddle/pull/44863): OneDNN md-in-tensor refactoring part 7 Memory descriptor enabled for fc
+- [#44677](https://github.com/PaddlePaddle/Paddle/pull/44677): OneDNN md-in-tensor refactoring part 6: Memory descriptor enabled for conv and conv_transpose
+- [#44456](https://github.com/PaddlePaddle/Paddle/pull/44456): Added compare ops FP32 FWD oneDNN kernels(equal, not_equal, greater_than, greater_equal, less_than, less_equal)
+- [#44124](https://github.com/PaddlePaddle/Paddle/pull/44124): Quantize shape operator
+- [#43990](https://github.com/PaddlePaddle/Paddle/pull/43990): Added pad3d and pad2d FP32 FWD oneDNN kernels
+- [#43973](https://github.com/PaddlePaddle/Paddle/pull/43973): Refactor quantization of immutable ops
+- [#43160](https://github.com/PaddlePaddle/Paddle/pull/43160): Remove mkldnn attributes from base matmul ops
+- [#43036](https://github.com/PaddlePaddle/Paddle/pull/43036): OneDNN md-in-tensor refactoring part 5: Memory descriptor enabled for elementwises, reductions and expand_v2 ops
+- [#42946](https://github.com/PaddlePaddle/Paddle/pull/42946): OneDNN md-in-tensor refactoring part 4: Memory descriptor enabled for fill_constant, lrn, slice, stack and sum ops
+- [#42854](https://github.com/PaddlePaddle/Paddle/pull/42854): Quantize elementwise sub
+- [#42852](https://github.com/PaddlePaddle/Paddle/pull/42852): Remove mkldnn attributes from base ops
+- [#42766](https://github.com/PaddlePaddle/Paddle/pull/42766): OneDNN md-in-tensor refactoring part 3: Changes in quantize and dequantize
+- [#42625](https://github.com/PaddlePaddle/Paddle/pull/42625): [external reviewing] Params to int8 pass
+- [#42418](https://github.com/PaddlePaddle/Paddle/pull/42418): Remove legacy parameter
+- [#40546](https://github.com/PaddlePaddle/Paddle/pull/40546): Quantize elementwise mul
+- [#40418](https://github.com/PaddlePaddle/Paddle/pull/40418): Use OneDNN's LayerNorm kernel
+- [#39498](https://github.com/PaddlePaddle/Paddle/pull/39498): Disabled int_reorders profiling for non weights/bias reorders
+- [#39426](https://github.com/PaddlePaddle/Paddle/pull/39426): Update of oneDNN to 2.5
+- [#39406](https://github.com/PaddlePaddle/Paddle/pull/39406): Quantize elementwise mul operator
+- [#39158](https://github.com/PaddlePaddle/Paddle/pull/39158): Added Adam FP32 JIT assembly kernel
+- [#38911](https://github.com/PaddlePaddle/Paddle/pull/38911): Remved redundant defintions of likely/unlikely
+- [#38794](https://github.com/PaddlePaddle/Paddle/pull/38794): [cherry-pick] Add nearest_interp (u)int8
+- [#38624](https://github.com/PaddlePaddle/Paddle/pull/38624): Added exp FP32 FWD/BWD oneDNN kernel and optimized other oneDNN grad kernels
+- [#38321](https://github.com/PaddlePaddle/Paddle/pull/38321): Enable FC_MKLDNN pass by default for int8
+- [#37848](https://github.com/PaddlePaddle/Paddle/pull/37848): Faster implementation of CPU kernel for ROI Align operator
+- [#37735](https://github.com/PaddlePaddle/Paddle/pull/37735): proposition of matmul_utils.h
+- [#37630](https://github.com/PaddlePaddle/Paddle/pull/37630): Quantize slice op
+- [#37622](https://github.com/PaddlePaddle/Paddle/pull/37622): refactoring matmul_v2 mkldnn hierarchy
+- [#37388](https://github.com/PaddlePaddle/Paddle/pull/37388): Quantize slice operator
+- [#37216](https://github.com/PaddlePaddle/Paddle/pull/37216): [Video detection] Added fill_constant FP32 FWD oneDNN kernel
+- [#37213](https://github.com/PaddlePaddle/Paddle/pull/37213): [video detection] Added range FP32 FWD oneDNN kernel
+- [#37149](https://github.com/PaddlePaddle/Paddle/pull/37149): Added ELU FP32 FWD/BWD oneDNN kernel
+- [#37078](https://github.com/PaddlePaddle/Paddle/pull/37078): Enable FC int8
+- [#37002](https://github.com/PaddlePaddle/Paddle/pull/37002): Added stack FP32 FWD oneDNN kernel
+- [#36980](https://github.com/PaddlePaddle/Paddle/pull/36980): Added caching of scales for bias in conv2d int8
+- [#36917](https://github.com/PaddlePaddle/Paddle/pull/36917): Optimized and refactored oneDNN layer_norm kernel
+- [#36382](https://github.com/PaddlePaddle/Paddle/pull/36382): Added softplus FP32 FWD OneDNN kernel
+- [#36280](https://github.com/PaddlePaddle/Paddle/pull/36280): Revert "[OneDNN] Conv op refactor. (#36252)"
+- [#35664](https://github.com/PaddlePaddle/Paddle/pull/35664): [oneDNN] Disable caching of Reorder operation
+- [#35596](https://github.com/PaddlePaddle/Paddle/pull/35596): [WIP-Coverage-failed-oneDNN] enable hogwild for oneDNN
+- [#35331](https://github.com/PaddlePaddle/Paddle/pull/35331): [oneDNN] Disable cache matmul v1 & refactoring
+- [#35132](https://github.com/PaddlePaddle/Paddle/pull/35132): [oneDNN] disable caching oneDNN primitives in  matmul v2, Reduce grad and elementwise_add grad, expand_v2
+- [#35030](https://github.com/PaddlePaddle/Paddle/pull/35030): [oneDNN]  disable caching for interpolate and batch Norm
+- [#33879](https://github.com/PaddlePaddle/Paddle/pull/33879): Use CBLAS for SelectedRows elementwise add operation.
+- [#33390](https://github.com/PaddlePaddle/Paddle/pull/33390): Optimized keys creation for oneDNN primitives
+- [#33048](https://github.com/PaddlePaddle/Paddle/pull/33048): [oneDNN] Accesses to oneDNN cache optimized for conv2d
+- [#32922](https://github.com/PaddlePaddle/Paddle/pull/32922): [oneDNN] Pool softmax and LRN access to cache optimized
+- [#32762](https://github.com/PaddlePaddle/Paddle/pull/32762): CPU memory allocator using Transparent Huge Pages
+- [#32312](https://github.com/PaddlePaddle/Paddle/pull/32312): Added bilinear and nearest interp v2 oneDNN FP32 kernels
+- [#31894](https://github.com/PaddlePaddle/Paddle/pull/31894): Added int8 kernel for oneDNN LSTM op
+
+### Quantization (1)
+#### General Quant (1)
+- [#33797](https://github.com/PaddlePaddle/Paddle/pull/33797): Add QuantizeFusionLSTM pass and collect lstm scales
+
+### BF16/Low Precision (80)
+#### BF16 (80)
+- [#70857](https://github.com/PaddlePaddle/Paddle/pull/70857): [PIR][OneDNN] Support Split op in bf16 (do not merge, need check ci coverage) 
+- [#70749](https://github.com/PaddlePaddle/Paddle/pull/70749): [Old IR][oneDNN] Fix issue for repetitive inputs
+- [#70630](https://github.com/PaddlePaddle/Paddle/pull/70630): [PIR][oneDNN] Optimize bfloat16 placement logic
+- [#70099](https://github.com/PaddlePaddle/Paddle/pull/70099): [PIR][OneDNN] Fix bf16 quantize data_format bug
+- [#68951](https://github.com/PaddlePaddle/Paddle/pull/68951): [PIR][oneDNN][BF16] Generalize shape check function
+- [#68784](https://github.com/PaddlePaddle/Paddle/pull/68784): [OneDNN][PIR] Fix picodet performance drop in bf16
+- [#68716](https://github.com/PaddlePaddle/Paddle/pull/68716): [PIR][oneDNN] Fix bf16 placement for Reshape
+- [#68057](https://github.com/PaddlePaddle/Paddle/pull/68057): [PIR][oneDNN] Fix bf16 quantization for cast
+- [#68021](https://github.com/PaddlePaddle/Paddle/pull/68021): [PIR][OneDNN] Add cpu bf16 placement pass check data type
+- [#67836](https://github.com/PaddlePaddle/Paddle/pull/67836): [PIR][oneDNN] Fix data type in cpu_bfloat16_squash_pass
+- [#67830](https://github.com/PaddlePaddle/Paddle/pull/67830): [OneDNN][PIR] Fix bf16 pass data type replacement error
+- [#67799](https://github.com/PaddlePaddle/Paddle/pull/67799): [OneDNN][PIR] Remove concat in bf16 pass for googlenet error
+- [#67672](https://github.com/PaddlePaddle/Paddle/pull/67672): [Bfloat16][PIR][oneDNN] Add cpu_bfloat16_squash_pass
+- [#67085](https://github.com/PaddlePaddle/Paddle/pull/67085): [OneDNN] Fix Prelu kernel failed in bf16 since data type error
+- [#66402](https://github.com/PaddlePaddle/Paddle/pull/66402): [PIR][OneDNN]Add bf16 related pass to support
+- [#50254](https://github.com/PaddlePaddle/Paddle/pull/50254): Add bf16 support for fused matmul
+- [#48118](https://github.com/PaddlePaddle/Paddle/pull/48118): Some residualdata fixes
+- [#44640](https://github.com/PaddlePaddle/Paddle/pull/44640): [WIP] Matmul v1 & v2 unification -- part 1
+- [#43455](https://github.com/PaddlePaddle/Paddle/pull/43455): Enable Bert on bfloat16 datatype
+- [#43154](https://github.com/PaddlePaddle/Paddle/pull/43154): Enable fc on bfloat16
+- [#43109](https://github.com/PaddlePaddle/Paddle/pull/43109): Fix for Bfloat16 placement pass.
+- [#42758](https://github.com/PaddlePaddle/Paddle/pull/42758): Enable bfloat16 for VIT-OCR model.
+- [#42238](https://github.com/PaddlePaddle/Paddle/pull/42238): Bfloat16 refactor
+- [#40721](https://github.com/PaddlePaddle/Paddle/pull/40721): Added support for BF16 datatype for all oneDNN activation kernels
+- [#40323](https://github.com/PaddlePaddle/Paddle/pull/40323): [High priority][WIP] Added BF16 functionality inside paddle core
+- [#39793](https://github.com/PaddlePaddle/Paddle/pull/39793): Added logsoftmax BF16/FP32 FWD oneDNN kernel
+- [#39756](https://github.com/PaddlePaddle/Paddle/pull/39756): Added shuffle_channel BF16/FP32 FWD oneDNN kernel
+- [#39740](https://github.com/PaddlePaddle/Paddle/pull/39740): Added paddle_bfloat package after publishing pre-built wheels
+- [#39653](https://github.com/PaddlePaddle/Paddle/pull/39653): Added round FP32 FWD oneDNN kernel
+- [#39548](https://github.com/PaddlePaddle/Paddle/pull/39548): Fix for split op in BF16 inference
+- [#39490](https://github.com/PaddlePaddle/Paddle/pull/39490): Added nearest interp v2 BF16 FWD kernel
+- [#39344](https://github.com/PaddlePaddle/Paddle/pull/39344): [File conflict][Passing CIs] softmax_cross_entropy bfloat16
+- [#38938](https://github.com/PaddlePaddle/Paddle/pull/38938): Fix for conv2D training error
+- [#38703](https://github.com/PaddlePaddle/Paddle/pull/38703): Reupload: Added numpy bf16 datatype support via custom pip package
+- [#38623](https://github.com/PaddlePaddle/Paddle/pull/38623): Mish FP32/BF16 kernel, conv and fc fuse passes
+- [#38599](https://github.com/PaddlePaddle/Paddle/pull/38599): Added sqrt BF16 FWD/BWD oneDNN kernel
+- [#38552](https://github.com/PaddlePaddle/Paddle/pull/38552): Added mul BF16/FP32 FWD/BWD oneDNN kernel
+- [#38507](https://github.com/PaddlePaddle/Paddle/pull/38507): Added Conv2D BF16 BWD oneDNN kernel
+- [#37387](https://github.com/PaddlePaddle/Paddle/pull/37387): Pawepiot bf16 debug crash fix
+- [#37214](https://github.com/PaddlePaddle/Paddle/pull/37214): Added fill_zeros_like (U)INT8/BF16/FP32 oneDNN kernel for video detection models
+- [#37112](https://github.com/PaddlePaddle/Paddle/pull/37112): Reimplemented FC (U)INT8/BF16/FP32 FWD oneDNN kernel
+- [#36291](https://github.com/PaddlePaddle/Paddle/pull/36291): Added missing ops to bf16 placement
+- [#36252](https://github.com/PaddlePaddle/Paddle/pull/36252): [OneDNN] Conv op refactor.
+- [#36158](https://github.com/PaddlePaddle/Paddle/pull/36158): Added fp32 / bf16 forward and backward elementwise_div_mkldnn operator 
+- [#36033](https://github.com/PaddlePaddle/Paddle/pull/36033): Added shape (U)INT8/BF16/FP32 oneDNN kernel
+- [#35892](https://github.com/PaddlePaddle/Paddle/pull/35892): Added flatten and flatten2 BF16/FP32 FWD/BWD kernels
+- [#35889](https://github.com/PaddlePaddle/Paddle/pull/35889): Added concat BF16/FP32 BWD OneDNN kernel
+- [#35601](https://github.com/PaddlePaddle/Paddle/pull/35601): Added clip BF16/FP32 FWD/BWD kernels
+- [#35510](https://github.com/PaddlePaddle/Paddle/pull/35510): Reuse OneDNN handler for SGD and SUM for SelectedRows input tensors.
+- [#35332](https://github.com/PaddlePaddle/Paddle/pull/35332): Added numpy bf16 datatype support via custom pip package
+- [#34936](https://github.com/PaddlePaddle/Paddle/pull/34936): Added numpy bf16 datatype support
+- [#34653](https://github.com/PaddlePaddle/Paddle/pull/34653): Update LearningRate for test fit a line BF16
+- [#34648](https://github.com/PaddlePaddle/Paddle/pull/34648): SGD BF16 functional test.
+- [#34332](https://github.com/PaddlePaddle/Paddle/pull/34332): Added slice BF16/FP32 FWD/BWD kernels
+- [#34329](https://github.com/PaddlePaddle/Paddle/pull/34329): Fix for failing CI(test_activation_mkldnn_op.py)
+- [#34328](https://github.com/PaddlePaddle/Paddle/pull/34328): Revert "Added sigmoid BF16 FWD/BWD kernels and gelu BF16 BWD kernel"
+- [#34316](https://github.com/PaddlePaddle/Paddle/pull/34316): FP32 LearningRate input for SGD with bfloat16.
+- [#34284](https://github.com/PaddlePaddle/Paddle/pull/34284): Added expand_v2 BF16/FP32 FWD/BWD kernels
+- [#34219](https://github.com/PaddlePaddle/Paddle/pull/34219): Added reshape, reshape2, squeeze and squeeze2 BF16/FP32 FWD/BWD kernels
+- [#34216](https://github.com/PaddlePaddle/Paddle/pull/34216): Added sigmoid BF16 FWD/BWD kernels and gelu BF16 BWD kernel
+- [#34196](https://github.com/PaddlePaddle/Paddle/pull/34196): Enabled BF16 tests in prelu
+- [#34192](https://github.com/PaddlePaddle/Paddle/pull/34192): Added matmul_v2 BF16/FP32 BWD kernel
+- [#33878](https://github.com/PaddlePaddle/Paddle/pull/33878): Added PRelu BF16/FP32 FWD/BWD kernels
+- [#33750](https://github.com/PaddlePaddle/Paddle/pull/33750): Added matmul_v2 BF16/FP32 FWD kernel 
+- [#33643](https://github.com/PaddlePaddle/Paddle/pull/33643): [cherry-pick] Added scale op FP32/BF16 FWD/BWD kernels (#32975)
+- [#33584](https://github.com/PaddlePaddle/Paddle/pull/33584): Added split op bf16/fp32 oneDNN kernel
+- [#33388](https://github.com/PaddlePaddle/Paddle/pull/33388): Fixed enabling cast op in bf16 mode
+- [#33056](https://github.com/PaddlePaddle/Paddle/pull/33056): Added cast op oneDNN kernel for bf16/fp32 datatypes casting(FWD/BWD)
+- [#32975](https://github.com/PaddlePaddle/Paddle/pull/32975): Added scale op FP32/BF16 FWD/BWD kernels
+- [#32968](https://github.com/PaddlePaddle/Paddle/pull/32968): Added oneDNN matmul grad BF16/FP32 kernel 
+- [#32764](https://github.com/PaddlePaddle/Paddle/pull/32764): [cherry-pick] Mechanism that converts startup_program initializers to BF16 (#32720)
+- [#32755](https://github.com/PaddlePaddle/Paddle/pull/32755): [cherry-pick] Sum kernel for CPU supporting BF16 and SelectedRows  (#32631)
+- [#32631](https://github.com/PaddlePaddle/Paddle/pull/32631): Sum kernel for CPU supporting BF16 and SelectedRows 
+- [#32280](https://github.com/PaddlePaddle/Paddle/pull/32280): Added oneDNN reduce_op GRAD kernel
+- [#32162](https://github.com/PaddlePaddle/Paddle/pull/32162): adds new CPU kernel for SGD op supporting BF16 data type
+- [#31816](https://github.com/PaddlePaddle/Paddle/pull/31816): Added oneDNN reduce_op FWD kernel
+- [#31647](https://github.com/PaddlePaddle/Paddle/pull/31647): [oneDNN] Added Elementwise Mul grad  fp32/bf16
+- [#31558](https://github.com/PaddlePaddle/Paddle/pull/31558): [oneDNN] lookup_table op with support for BF16 data type.
+- [#31385](https://github.com/PaddlePaddle/Paddle/pull/31385): [oneDNN] elementwise add bf16 grad kernel with broadcasting
+- [#31234](https://github.com/PaddlePaddle/Paddle/pull/31234): Added LSTM BF16 and fixed GRU BF16
+
+### CI/Infrastructure (13)
+#### CI (13)
+- [#63982](https://github.com/PaddlePaddle/Paddle/pull/63982): [OneDNN][PIR] Add onednn_placement_pass
+- [#54893](https://github.com/PaddlePaddle/Paddle/pull/54893): [oneDNN] oneDNN v3 upgrade
+- [#49444](https://github.com/PaddlePaddle/Paddle/pull/49444): Remove oneDNN-specific attributes from matmul
+- [#46372](https://github.com/PaddlePaddle/Paddle/pull/46372): Replacing set_format with set_mem_desc in FC onednn kernel
+- [#45091](https://github.com/PaddlePaddle/Paddle/pull/45091): Added concat workaround for vivo model
+- [#44078](https://github.com/PaddlePaddle/Paddle/pull/44078): Persuading more efficient memory format to be preferred
+- [#42241](https://github.com/PaddlePaddle/Paddle/pull/42241): Move weights and biases scale computing into pass
+- [#41997](https://github.com/PaddlePaddle/Paddle/pull/41997): OneDNN md-in-tensor refactoring part 2: Second batch of changes for md-in-tensor
+- [#41423](https://github.com/PaddlePaddle/Paddle/pull/41423): [WIP] Reduce not needed HasAttr(), Attr() calls
+- [#41303](https://github.com/PaddlePaddle/Paddle/pull/41303): OneDNN md-in-tensor refactoring part 1: Added main changes for md-in-tensor
+- [#40081](https://github.com/PaddlePaddle/Paddle/pull/40081): [Candidate solution] Add an elementwise + activation fusion pass, add mechanizm to add attributes outside of base op.
+- [#37225](https://github.com/PaddlePaddle/Paddle/pull/37225): Add log when EnableMKLDN() and EnableMemoryOptim() are both set
+- [#36274](https://github.com/PaddlePaddle/Paddle/pull/36274): [Waiting] Md-in-tensor refactoring part 1 of 3: Added core changes for md-in-tensor
+
+### Documentation (0)
+
+### Bugfix (173)
+#### Bug (151)
+- [#71426](https://github.com/PaddlePaddle/Paddle/pull/71426): [PIR] Fix issue of no op_info when enabling oneDNN
+- [#70871](https://github.com/PaddlePaddle/Paddle/pull/70871): [PIR][oneDNN] Optimize cast quantization & squash pass
+- [#70430](https://github.com/PaddlePaddle/Paddle/pull/70430): [PIR][oneDNN] Add quantization pattern for Concatence
+- [#69917](https://github.com/PaddlePaddle/Paddle/pull/69917): [oneDNN] Upgrade oneDNN to v3.5
+- [#69786](https://github.com/PaddlePaddle/Paddle/pull/69786): [DO NOT MERGE][CI test] Check CI on v3.4.4
+- [#69524](https://github.com/PaddlePaddle/Paddle/pull/69524): [PIR][oneDNN] Change opt level of oneDNN passes to 2
+- [#69386](https://github.com/PaddlePaddle/Paddle/pull/69386): [oneDNN] Upgrade oneDNN to v3.6
+- [#68903](https://github.com/PaddlePaddle/Paddle/pull/68903): [PIR][oneDNN] Workaround for reshape when shape is unknown
+- [#68494](https://github.com/PaddlePaddle/Paddle/pull/68494): [PIR][oneDNN] Delete extra placement pattern for fc
+- [#68449](https://github.com/PaddlePaddle/Paddle/pull/68449): [OneDNN] Fix compiler error in clang build
+- [#68193](https://github.com/PaddlePaddle/Paddle/pull/68193): [PIR][oneDNN] Optimize Fc InferMeta
+- [#68132](https://github.com/PaddlePaddle/Paddle/pull/68132): [OneDNN][PIR] Fix vit model fail for matmul op
+- [#68095](https://github.com/PaddlePaddle/Paddle/pull/68095): [PIR][oneDNN] Optimize onednn_placement_pass
+- [#67670](https://github.com/PaddlePaddle/Paddle/pull/67670): [OneDNN] [PIR] Fix mkldnn type get function
+- [#67076](https://github.com/PaddlePaddle/Paddle/pull/67076): [PIR][OneDNN] Add dispatch in multi build for several Op
+- [#66977](https://github.com/PaddlePaddle/Paddle/pull/66977): [PIR] Fix layout transformation
+- [#66568](https://github.com/PaddlePaddle/Paddle/pull/66568): [PIR][oneDNN] Extend capability of conv2d_bn_onednn_fuse_pass
+- [#66474](https://github.com/PaddlePaddle/Paddle/pull/66474): [PIR][oneDNN] Add inplace ops as activation
+- [#66329](https://github.com/PaddlePaddle/Paddle/pull/66329): [OneDNN] Put reshape in fc outside to avoid fc kernel error
+- [#66000](https://github.com/PaddlePaddle/Paddle/pull/66000): [PIR][oneDNN] Extend Conv bias fusion capability
+- [#65750](https://github.com/PaddlePaddle/Paddle/pull/65750): [PIR][oneDNN] Add conv2d_bias_bn_onednn_fuse_pass
+- [#65712](https://github.com/PaddlePaddle/Paddle/pull/65712): [PIR][oneDNN] Revise operator_reshape_onednn_fuse_pass
+- [#65540](https://github.com/PaddlePaddle/Paddle/pull/65540): [PIR][oneDNN] Reorder pass and add repetitive pass for better fusion
+- [#65112](https://github.com/PaddlePaddle/Paddle/pull/65112): [PIR] Add attribute for several ops for some failed model
+- [#65107](https://github.com/PaddlePaddle/Paddle/pull/65107): [PIR] Add non-existent attribute handler for several ops
+- [#64997](https://github.com/PaddlePaddle/Paddle/pull/64997): [oneDNN] Fix oneDNN kernel of fusion_lstm
+- [#64925](https://github.com/PaddlePaddle/Paddle/pull/64925): [PIR][oneDNN] set is_test attribute for onednn ops
+- [#64912](https://github.com/PaddlePaddle/Paddle/pull/64912): [OneDNN][PIR] Fix OneDNN concat kernel bug
+- [#64676](https://github.com/PaddlePaddle/Paddle/pull/64676): [OneDNN][PIR] Fix OneDNN mean kernel fallback fault
+- [#64524](https://github.com/PaddlePaddle/Paddle/pull/64524): [PIR][oneDNN] Add new pass conv2d_bn_onednn_fuse_pass
+- [#64448](https://github.com/PaddlePaddle/Paddle/pull/64448): [PIR][oneDNN] Add constraints for conv_elementwise_add_onednn_fuse_pass
+- [#64441](https://github.com/PaddlePaddle/Paddle/pull/64441): [PIR][oneDNN] Support attribute transformation of ArrayAttribute<pir::Int64Attribute> in oneDNN instruction
+- [#64433](https://github.com/PaddlePaddle/Paddle/pull/64433): [PIR][oneDNN] Avoid repeat warning logs
+- [#64412](https://github.com/PaddlePaddle/Paddle/pull/64412): [PIR][oneDNN] Fix conv_bias_fuse_pass
+- [#64132](https://github.com/PaddlePaddle/Paddle/pull/64132): [OneDNN]Fix ocr error since pass avx512 command
+- [#64053](https://github.com/PaddlePaddle/Paddle/pull/64053): [PIR][oneDNN] Add shuffle_channel_detect_pass
+- [#63853](https://github.com/PaddlePaddle/Paddle/pull/63853): [PIR][oneDNN] Add fc_activation_fuse_pass
+- [#63726](https://github.com/PaddlePaddle/Paddle/pull/63726): [PIR][oneDNN] Add self_attention_fuse_pass
+- [#63617](https://github.com/PaddlePaddle/Paddle/pull/63617): [PIR][oneDNN] Add softplus_activation_fuse_pass
+- [#63518](https://github.com/PaddlePaddle/Paddle/pull/63518): [PIR][oneDNN] Add fc_onednn_enable_pass
+- [#63313](https://github.com/PaddlePaddle/Paddle/pull/63313): [PIR][oneDNN] Add scale_matmul_fuse_pass
+- [#63151](https://github.com/PaddlePaddle/Paddle/pull/63151): [PIR][oneDNN] Add matmul_transpose_reshape_fuse_pass
+- [#62998](https://github.com/PaddlePaddle/Paddle/pull/62998): [PIR][oneDNN] Add reshape_transpose_matmul_fuse_pass
+- [#60298](https://github.com/PaddlePaddle/Paddle/pull/60298): fix gru error for make foramt any
+- [#59527](https://github.com/PaddlePaddle/Paddle/pull/59527): [OneDNN] Fix accuracy problem on fused matmul
+- [#59259](https://github.com/PaddlePaddle/Paddle/pull/59259): [OneDNN] Replace cpu.h header in default OneDNN to deploy
+- [#58435](https://github.com/PaddlePaddle/Paddle/pull/58435): [OneDNN] v3.2 pp_liteseg_stdc1 regression issue
+- [#58361](https://github.com/PaddlePaddle/Paddle/pull/58361): [OneDNN] Pooling calculation issue fix
+- [#58181](https://github.com/PaddlePaddle/Paddle/pull/58181): [OneDNN] Fix accuracy issue of deconv on specific platforms
+- [#57598](https://github.com/PaddlePaddle/Paddle/pull/57598): [OneDNN] fix fast_rcnn bug
+- [#56909](https://github.com/PaddlePaddle/Paddle/pull/56909): Refine self_attention_fuse pass with removing the size restriction
+- [#56782](https://github.com/PaddlePaddle/Paddle/pull/56782): [OneDNN] Fix v3.2 conv dst layout cause regression case performance declined issue
+- [#56384](https://github.com/PaddlePaddle/Paddle/pull/56384): [ONEDNN] fix LSTM FP32 model acc drop issue, and add fc_…
+- [#56303](https://github.com/PaddlePaddle/Paddle/pull/56303): [OneDNN] cpu_quantize_pass fix
+- [#55504](https://github.com/PaddlePaddle/Paddle/pull/55504): onednn: remove fc_elementwise_add fusion
+- [#52462](https://github.com/PaddlePaddle/Paddle/pull/52462): [oneDNN]disable interpolate operators by default
+- [#49524](https://github.com/PaddlePaddle/Paddle/pull/49524): [CI FIX] Revert "Replace matmul with matmul_v2 during oneDNN fuse passes"
+- [#48593](https://github.com/PaddlePaddle/Paddle/pull/48593): Fix for bad_alloc in oneDNN matmul_grad kernel
+- [#48484](https://github.com/PaddlePaddle/Paddle/pull/48484): [Bug fix] elementwise_div + scale fuse pass
+- [#48359](https://github.com/PaddlePaddle/Paddle/pull/48359): Reenabled reshape, squeeze and flatten oneDNN kernels
+- [#48064](https://github.com/PaddlePaddle/Paddle/pull/48064): fix onednn prelu lincense header
+- [#47777](https://github.com/PaddlePaddle/Paddle/pull/47777): Fix for missing oneDNN reorders in profiling
+- [#47421](https://github.com/PaddlePaddle/Paddle/pull/47421): Fix undefined symbol: shm_open
+- [#47391](https://github.com/PaddlePaddle/Paddle/pull/47391): Optimized oneDNN FC and added operator+unsqueeze2 and operator+reshape2 oneDNN fuse passes
+- [#47037](https://github.com/PaddlePaddle/Paddle/pull/47037): Fix for conv_bias_mkldnn_pass
+- [#46836](https://github.com/PaddlePaddle/Paddle/pull/46836): Tests for other dtypes corrected
+- [#44744](https://github.com/PaddlePaddle/Paddle/pull/44744): Fix to CI
+- [#43725](https://github.com/PaddlePaddle/Paddle/pull/43725): [cherry-pick] release/2.3 elementwise_mul and matmul mkldnn fix
+- [#43704](https://github.com/PaddlePaddle/Paddle/pull/43704): [cherry-pick] Fix mkldnn elementwise_mul and matmul quantization and resnet50 int8 crash bug
+- [#43598](https://github.com/PaddlePaddle/Paddle/pull/43598): Revert "Revert md-in-tensor refactoring in Softmax Mkldnn Op "
+- [#43567](https://github.com/PaddlePaddle/Paddle/pull/43567): Fix for FC for quant model
+- [#43476](https://github.com/PaddlePaddle/Paddle/pull/43476): Fix for oneDNN layernorm for begin_norm_axis != last_dim
+- [#43297](https://github.com/PaddlePaddle/Paddle/pull/43297): [Bug fix] Do not quantize weights Y when matmul X and Y both other ops outputs
+- [#42729](https://github.com/PaddlePaddle/Paddle/pull/42729): [Internal reviewing] NHWC fix to am_vocoder model for oneDNN 2.6
+- [#42548](https://github.com/PaddlePaddle/Paddle/pull/42548): shape mkldnn kernel adapted to NHWC
+- [#42506](https://github.com/PaddlePaddle/Paddle/pull/42506): oneDNN NHWC matmul & elementwise kernels fixes
+- [#42055](https://github.com/PaddlePaddle/Paddle/pull/42055): [cherry-pick 2.3] Back port of "Fix to #38693 (minimal UT) "
+- [#41572](https://github.com/PaddlePaddle/Paddle/pull/41572): Fix for gaussian random kernel
+- [#41026](https://github.com/PaddlePaddle/Paddle/pull/41026): Fix to #38693 (minimal UT)
+- [#40948](https://github.com/PaddlePaddle/Paddle/pull/40948): [Bug fix] matmul bug after reshape+transpose+matmul fuse
+- [#40923](https://github.com/PaddlePaddle/Paddle/pull/40923): Fix to issue #38693
+- [#40049](https://github.com/PaddlePaddle/Paddle/pull/40049): oneDNN NHWC fixes
+- [#39953](https://github.com/PaddlePaddle/Paddle/pull/39953): Fix for failing CI for log_softmax OneDNN kernel
+- [#39704](https://github.com/PaddlePaddle/Paddle/pull/39704): Reengineered fix to #38126
+- [#39593](https://github.com/PaddlePaddle/Paddle/pull/39593): [bugfix] to concat input squash
+- [#39591](https://github.com/PaddlePaddle/Paddle/pull/39591): Enable fuse of conv and gelu oneDNN pass test for NHWC
+- [#39346](https://github.com/PaddlePaddle/Paddle/pull/39346): [Bug fix] prevent squashing pair u8 dequantize -> s8 quantize
+- [#39270](https://github.com/PaddlePaddle/Paddle/pull/39270): [Cherry-pick] release/2.2 mkldnn related bug fixes
+- [#39106](https://github.com/PaddlePaddle/Paddle/pull/39106): Fix isnan compiling error
+- [#39097](https://github.com/PaddlePaddle/Paddle/pull/39097): Fix to #38126
+- [#38890](https://github.com/PaddlePaddle/Paddle/pull/38890): Fix fc_mkldnn format issue
+- [#38733](https://github.com/PaddlePaddle/Paddle/pull/38733): [CHERRY-PICK] Fix for matmul_v2 oneDNN op broadcasting when inputs dims have different lengths
+- [#38665](https://github.com/PaddlePaddle/Paddle/pull/38665): [Bug fix] Fix for matmul_v2 oneDNN op broadcasting when inputs dims have different lengths
+- [#38554](https://github.com/PaddlePaddle/Paddle/pull/38554): [Bug fix] Fix for MKLDNNDeviceContext error in matmul_v2_transpose_reshape fuse pass when GLOG_v set
+- [#38553](https://github.com/PaddlePaddle/Paddle/pull/38553): [Bug fix] Fix for undefined format for 6 dim tensor
+- [#38411](https://github.com/PaddlePaddle/Paddle/pull/38411): Fix for MKLDNNDeviceContext error in matmul_v2_transpose_reshape fuse pass when GLOG_v set [abandoned]
+- [#38331](https://github.com/PaddlePaddle/Paddle/pull/38331): Fix conv act int8 scale
+- [#38299](https://github.com/PaddlePaddle/Paddle/pull/38299): Fix for undefined format for 6 dim tensor [Abandoned]
+- [#38225](https://github.com/PaddlePaddle/Paddle/pull/38225): fix use of implicitly deleted constructor
+- [#37618](https://github.com/PaddlePaddle/Paddle/pull/37618): dequantize matmul and matmul_v2 Y weights in quant2_int8
+- [#37344](https://github.com/PaddlePaddle/Paddle/pull/37344): [Bug fix] Add new unittests for gIOHW format in conv_transpose_mkldnn_op
+- [#37310](https://github.com/PaddlePaddle/Paddle/pull/37310): [Bug fix] Fix for wrong results in segmentation models
+- [#37079](https://github.com/PaddlePaddle/Paddle/pull/37079): Fix to #34554
+- [#36695](https://github.com/PaddlePaddle/Paddle/pull/36695): Disable pool&conv_transpose&quantize caching
+- [#36595](https://github.com/PaddlePaddle/Paddle/pull/36595): [WIP] partial disabling of caching for conv2d, conv_transpose, quantize and pool2d
+- [#36342](https://github.com/PaddlePaddle/Paddle/pull/36342): [Bug fix] Fix for matmul_v2 6D x 2D oneDNN
+- [#36290](https://github.com/PaddlePaddle/Paddle/pull/36290): Second fix to  #34554 
+- [#36284](https://github.com/PaddlePaddle/Paddle/pull/36284): Fix for oneDNN conv op
+- [#35912](https://github.com/PaddlePaddle/Paddle/pull/35912): [cherry-pick] Add quant2 int8 lstm model test (#35887)
+- [#35885](https://github.com/PaddlePaddle/Paddle/pull/35885): Fix copy elision warning in gcc-10
+- [#35884](https://github.com/PaddlePaddle/Paddle/pull/35884): [oneDNN] candidate fix to #34554
+- [#35852](https://github.com/PaddlePaddle/Paddle/pull/35852): [Waiting oneDNN v2.4 upgrade] Fix for wrong results in segmentation models
+- [#35781](https://github.com/PaddlePaddle/Paddle/pull/35781): Disabled oneDNN reshape1/2 and squeeze1/2 kernels
+- [#35740](https://github.com/PaddlePaddle/Paddle/pull/35740): Fix for swin_transformer(matmul+transpose+reshape)
+- [#35706](https://github.com/PaddlePaddle/Paddle/pull/35706): Fix for slice OneDNN kernel in solov2 and ppyolo models
+- [#35455](https://github.com/PaddlePaddle/Paddle/pull/35455): Fix for reshape2 oneDNN op
+- [#35231](https://github.com/PaddlePaddle/Paddle/pull/35231): [oneDNN] Fix to #34492
+- [#35101](https://github.com/PaddlePaddle/Paddle/pull/35101): Fix for expand_v2 op
+- [#34859](https://github.com/PaddlePaddle/Paddle/pull/34859): [oneDNN] Fix to 34554 (same as previous PR but should build with GPU)
+- [#34839](https://github.com/PaddlePaddle/Paddle/pull/34839): Revert "[oneDNN] Fix to issue #34554 (#34623)"
+- [#34830](https://github.com/PaddlePaddle/Paddle/pull/34830): [oneDNN ] disabling more ops caching
+- [#34623](https://github.com/PaddlePaddle/Paddle/pull/34623): [oneDNN] Fix to issue #34554
+- [#34021](https://github.com/PaddlePaddle/Paddle/pull/34021): Added printing tensor's format if oneDNN is used
+- [#33944](https://github.com/PaddlePaddle/Paddle/pull/33944): Split op oneDNN AVX2 fix
+- [#33923](https://github.com/PaddlePaddle/Paddle/pull/33923): [oneDNN] update of oneDNN to 2.3 final
+- [#33845](https://github.com/PaddlePaddle/Paddle/pull/33845): [oneDNN][cherry-pick] Fix to #33282 , added support of X input broadcasting to one…
+- [#33702](https://github.com/PaddlePaddle/Paddle/pull/33702): [oneDNN] Update of oneDNN to 2.3 + bugfixes
+- [#33678](https://github.com/PaddlePaddle/Paddle/pull/33678): [Test 2 oneDNN elementwise broadcast] PR 33549 from Jacek
+- [#33668](https://github.com/PaddlePaddle/Paddle/pull/33668): [test PR , do not merge] fix to #33282
+- [#33571](https://github.com/PaddlePaddle/Paddle/pull/33571): [cherry pick] Fix issue #33021 setCacheCapacity could not limit memory consumption
+- [#33549](https://github.com/PaddlePaddle/Paddle/pull/33549): [oneDNN] Fix to #33282 , added support of X input broadcasting to oneDNN elementwise ops
+- [#33471](https://github.com/PaddlePaddle/Paddle/pull/33471): [oneDNN] Second fix to #33021
+- [#33174](https://github.com/PaddlePaddle/Paddle/pull/33174): [oneDNN] First fix to #33021 
+- [#32742](https://github.com/PaddlePaddle/Paddle/pull/32742): [CHERRY-PICK] Reduce grad fix cherrypick
+- [#32685](https://github.com/PaddlePaddle/Paddle/pull/32685): [oneDNN] bump up oneDNN to 2.2.2 
+- [#32664](https://github.com/PaddlePaddle/Paddle/pull/32664): [cherry-pick to 2.1][Second fix to #31992]
+- [#32592](https://github.com/PaddlePaddle/Paddle/pull/32592): Reduce grad fix
+- [#32499](https://github.com/PaddlePaddle/Paddle/pull/32499): [oneDNN] Added clearing oneDNN cache per executor
+- [#32309](https://github.com/PaddlePaddle/Paddle/pull/32309): [oneDNN] Made cache to be stored in TLS for prediction
+- [#32228](https://github.com/PaddlePaddle/Paddle/pull/32228): [cherry-pick] Upgrade to oneDNN2.2.1
+- [#32227](https://github.com/PaddlePaddle/Paddle/pull/32227): Upgrade to oneDNN2.2.1 (fix #31928 when prim descriptor or attr contain NaN)
+- [#32163](https://github.com/PaddlePaddle/Paddle/pull/32163): [cherry-pick] Fix to 31992 for 2.0
+- [#32136](https://github.com/PaddlePaddle/Paddle/pull/32136): [oneDNN] Candidate fix to #31992
+- [#31837](https://github.com/PaddlePaddle/Paddle/pull/31837): [cherry-pick] fix cache key in concat oneDNN kernel (#31820)
+- [#31820](https://github.com/PaddlePaddle/Paddle/pull/31820): fix cache key in concat oneDNN kernel
+- [#31810](https://github.com/PaddlePaddle/Paddle/pull/31810): [cherry-pick] update scale collection and propagation algorithm (#31783)
+- [#31783](https://github.com/PaddlePaddle/Paddle/pull/31783): update scale collection and propagation algorithm
+- [#31482](https://github.com/PaddlePaddle/Paddle/pull/31482): [Bug fix] remove md5 check since different machine generate different binary file
+- [#31473](https://github.com/PaddlePaddle/Paddle/pull/31473): [oneDNN] bumpup onednn 2.2 fixup version
+- [#31348](https://github.com/PaddlePaddle/Paddle/pull/31348): [cherry-pick] Modify relu native implementation 2 (#30996)
+- [#31066](https://github.com/PaddlePaddle/Paddle/pull/31066): A fix for oneDNN matmul kernel. Fixes issue #30309 for oneDNN 1.6
+#### Fix (13)
+- [#52832](https://github.com/PaddlePaddle/Paddle/pull/52832): [Zero-Dim] support 0d tensor for shape and squeeze onednn kernel
+- [#50034](https://github.com/PaddlePaddle/Paddle/pull/50034): Rewrite mkldnn conv bn fuse pass tester
+- [#50031](https://github.com/PaddlePaddle/Paddle/pull/50031): Export paddle_proto symbols
+- [#48537](https://github.com/PaddlePaddle/Paddle/pull/48537): onednn reshape fix to match CPU reshape kernel behaviour
+- [#47234](https://github.com/PaddlePaddle/Paddle/pull/47234): Fix for bias caching and scales computation optimization for oneDNN FC
+- [#47181](https://github.com/PaddlePaddle/Paddle/pull/47181): log only if > 0
+- [#46254](https://github.com/PaddlePaddle/Paddle/pull/46254): Reverted changes for concat workaround
+- [#44870](https://github.com/PaddlePaddle/Paddle/pull/44870): Merge matmul_v1 and matmul_v2 fuse passes
+- [#43803](https://github.com/PaddlePaddle/Paddle/pull/43803): Performance fix for recommender model
+- [#38728](https://github.com/PaddlePaddle/Paddle/pull/38728): Add enabling FC MKLDNN passes
+- [#38336](https://github.com/PaddlePaddle/Paddle/pull/38336): [Performance fix] Make GetBlob assuming elements are cached
+- [#38023](https://github.com/PaddlePaddle/Paddle/pull/38023): add map_matmul and fc_act_fuse passes to quant2_int8_mkldnn_pass
+- [#36379](https://github.com/PaddlePaddle/Paddle/pull/36379): [CHERRY-PICK] Fix for matmul_v2 6D x 2D oneDNN
+#### Issue (9)
+- [#59394](https://github.com/PaddlePaddle/Paddle/pull/59394): [OneDNN] Matmul kernel optimize for swin model
+- [#58488](https://github.com/PaddlePaddle/Paddle/pull/58488): [oneDNN] Realize optional input of scale/bias from oneDNN backend
+- [#52185](https://github.com/PaddlePaddle/Paddle/pull/52185): [Zero-Dim] support 0-D tensor for reduce/reshape/stack/prelu/expand_v2/gaussion onednn kernels
+- [#51687](https://github.com/PaddlePaddle/Paddle/pull/51687): [Zero-Dim] Support 0-D tensor for some oneDNN unary kernels
+- [#51656](https://github.com/PaddlePaddle/Paddle/pull/51656): [Zero-Dim] elementwise: onednn: support zero dimension inputs
+- [#48981](https://github.com/PaddlePaddle/Paddle/pull/48981): [PHI decoupling] Remove fluid imports from MKLDNN code
+- [#46860](https://github.com/PaddlePaddle/Paddle/pull/46860): [cherry-pick] [PHI] Revert pool+grad oneDNN kernel conversion (#45989)
+- [#46301](https://github.com/PaddlePaddle/Paddle/pull/46301): upgrade oneDNN to 2.7.3
+- [#45989](https://github.com/PaddlePaddle/Paddle/pull/45989): [PHI] Revert pool and pool_grad oneDNN kernel conversion
+
+### API/Interface (130)
+#### API (128)
+- [#62901](https://github.com/PaddlePaddle/Paddle/pull/62901): [PIR][oneDNN] Add matmul_activation_fuse_pass
+- [#62715](https://github.com/PaddlePaddle/Paddle/pull/62715): [PIR][oneDNN] Add matmul_elementwise_add_fuse_pass
+- [#62241](https://github.com/PaddlePaddle/Paddle/pull/62241): [oneDNN] Add op conv2d_transpose_bias
+- [#59663](https://github.com/PaddlePaddle/Paddle/pull/59663): [oneDNN] Optimize fused elementwise kernel
+- [#59641](https://github.com/PaddlePaddle/Paddle/pull/59641): [oneDNN] Reshape attr_axes when going to oneDNN kernel
+- [#59421](https://github.com/PaddlePaddle/Paddle/pull/59421): [oneDNN] Extend shape of elementwise_add/sub for swin_transformer
+- [#58970](https://github.com/PaddlePaddle/Paddle/pull/58970): [oneDNN] Add test case for optional scale/bias of BatchNorm
+- [#58560](https://github.com/PaddlePaddle/Paddle/pull/58560): [OneDNN] Enable oneDNN by default in Paddle Inference API
+- [#58021](https://github.com/PaddlePaddle/Paddle/pull/58021): [OneDNN] Upgrade OneDNN to v3.2
+- [#54139](https://github.com/PaddlePaddle/Paddle/pull/54139): fuse vit attention for faster-rcnn on BML
+- [#53000](https://github.com/PaddlePaddle/Paddle/pull/53000): [Zero-Dim] fix reduce all and not keep dims case
+- [#52617](https://github.com/PaddlePaddle/Paddle/pull/52617): [ONEDNN] fix int8 resnet50 accuracy by disabling inplace
+- [#51499](https://github.com/PaddlePaddle/Paddle/pull/51499): Change QAT scale saving and correct lstm test
+- [#51427](https://github.com/PaddlePaddle/Paddle/pull/51427): Fused elementwises kernels and ops
+- [#50846](https://github.com/PaddlePaddle/Paddle/pull/50846): Add gru qat int8 test
+- [#50607](https://github.com/PaddlePaddle/Paddle/pull/50607): [WIP] onednn 3.0 integration
+- [#50354](https://github.com/PaddlePaddle/Paddle/pull/50354): Add matmul_v2 and fused_matmul to the quantization process and adjust Ernie model test
+- [#49899](https://github.com/PaddlePaddle/Paddle/pull/49899): Adjust mkldnn_placement_pass to check library type and data type
+- [#48872](https://github.com/PaddlePaddle/Paddle/pull/48872): Correct quantization for multiple input and output ops
+- [#48613](https://github.com/PaddlePaddle/Paddle/pull/48613): [PHI] Migrate elementwise_mul kernel
+- [#48611](https://github.com/PaddlePaddle/Paddle/pull/48611): [PHI] Migrate elementwise_sub kernel
+- [#48210](https://github.com/PaddlePaddle/Paddle/pull/48210): [PHI] Migrate elementwise_div + all elementwise grad kernels
+- [#48150](https://github.com/PaddlePaddle/Paddle/pull/48150): Adjust mkldnn_placement_pass to check library type and data type
+- [#48113](https://github.com/PaddlePaddle/Paddle/pull/48113): Delete caching from requantize_mkldnn_op and changed to Acquire API
+- [#47780](https://github.com/PaddlePaddle/Paddle/pull/47780): Move dropout removing pass at the beginning of the INT8 process
+- [#47657](https://github.com/PaddlePaddle/Paddle/pull/47657): [PHI] Migrate elementwise add, sub and mul kernels
+- [#47423](https://github.com/PaddlePaddle/Paddle/pull/47423): [PHI] Migrate pool2d and pool2d_grad kernels
+- [#47237](https://github.com/PaddlePaddle/Paddle/pull/47237): Fix oneDNN elementwise_sub dnnl_error in unit test
+- [#47118](https://github.com/PaddlePaddle/Paddle/pull/47118): [cherry-pick] Add unsigned int8 propagation
+- [#47009](https://github.com/PaddlePaddle/Paddle/pull/47009): Construct exec and ctx only once in cond op to speed up
+- [#46858](https://github.com/PaddlePaddle/Paddle/pull/46858): [cherry-pick] [PHI] gaussian_random kernel fix accuracy drop (#46747)
+- [#46770](https://github.com/PaddlePaddle/Paddle/pull/46770): Add bf16 data type support to oneDNN bilinear_interp kernel
+- [#46747](https://github.com/PaddlePaddle/Paddle/pull/46747): [PHI] gaussian_random kernel fix accuracy drop
+- [#46378](https://github.com/PaddlePaddle/Paddle/pull/46378): Add unsigned int8 scale propagation
+- [#46374](https://github.com/PaddlePaddle/Paddle/pull/46374): [PHI] Migrate sgd and stack oneDNN kernels
+- [#46101](https://github.com/PaddlePaddle/Paddle/pull/46101): [PHI] Migrate slice, slice_grad, split, pad and pad3d oneDNN kernels
+- [#45936](https://github.com/PaddlePaddle/Paddle/pull/45936): Correct order of passes in QAT
+- [#45863](https://github.com/PaddlePaddle/Paddle/pull/45863): [PHI] Migrate concat+grad, expand+grad, fill_constant, nearest_interp and bilinear_interp oneDNN kernels
+- [#45775](https://github.com/PaddlePaddle/Paddle/pull/45775): [PHI] Migrate cast, clip+grad and pool+grad oneDNN kernels
+- [#45704](https://github.com/PaddlePaddle/Paddle/pull/45704): Enable fc passes 
+- [#45666](https://github.com/PaddlePaddle/Paddle/pull/45666): Enable fc_mkldnn passes by default and add option to disable it
+- [#45626](https://github.com/PaddlePaddle/Paddle/pull/45626): [PHI] Move oneDNN helper classes to new location
+- [#45536](https://github.com/PaddlePaddle/Paddle/pull/45536): [PHI] Migrate reduce sum+grad, mean+grad, min and max oneDNN kernels
+- [#45416](https://github.com/PaddlePaddle/Paddle/pull/45416): New format quant model support for MKLDNN
+- [#45249](https://github.com/PaddlePaddle/Paddle/pull/45249): Enable OMP multithreading in lookup_table_v2
+- [#45077](https://github.com/PaddlePaddle/Paddle/pull/45077): Add int8 support for matmul+elementwise_add fuse pass
+- [#44908](https://github.com/PaddlePaddle/Paddle/pull/44908): Register matmul int8 with MatMulV2MKLDNNKernel
+- [#44186](https://github.com/PaddlePaddle/Paddle/pull/44186): Add pool avg to quantization and concat scales correction
+- [#44023](https://github.com/PaddlePaddle/Paddle/pull/44023): Set FC input data format to ANY 
+- [#43992](https://github.com/PaddlePaddle/Paddle/pull/43992): Fix for ernie3.0 int8
+- [#43801](https://github.com/PaddlePaddle/Paddle/pull/43801): Change BLAS to oneDNN version for float
+- [#43750](https://github.com/PaddlePaddle/Paddle/pull/43750): [cherry-pick] Remove gpu_cpu_reshape2_matmul_fuse_pass in EnableMkldnn
+- [#43729](https://github.com/PaddlePaddle/Paddle/pull/43729): [WIP] Remove gpu_cpu_reshape2_matmul_fuse_pass in EnableMkldnn
+- [#43693](https://github.com/PaddlePaddle/Paddle/pull/43693): Correct elementwise quantization
+- [#43564](https://github.com/PaddlePaddle/Paddle/pull/43564): Revert md-in-tensor refactoring in Softmax Mkldnn Op 
+- [#43462](https://github.com/PaddlePaddle/Paddle/pull/43462): Disable mkldnn FC INT8 by default and add option to enable it
+- [#43257](https://github.com/PaddlePaddle/Paddle/pull/43257): [cherry-pick] updated paddle_bfloat to v0.1.7
+- [#43236](https://github.com/PaddlePaddle/Paddle/pull/43236): Disable oneDNN adaptive pooling exhaustive check
+- [#43184](https://github.com/PaddlePaddle/Paddle/pull/43184): Correct skip_quant condition
+- [#42997](https://github.com/PaddlePaddle/Paddle/pull/42997): Add padding calculation to adaptive pooling
+- [#42865](https://github.com/PaddlePaddle/Paddle/pull/42865): updated paddle_bfloat to v0.1.7
+- [#42761](https://github.com/PaddlePaddle/Paddle/pull/42761): Correct C++ QAT pass
+- [#42657](https://github.com/PaddlePaddle/Paddle/pull/42657): Upgrade oneDNN version to newest 2.6
+- [#42522](https://github.com/PaddlePaddle/Paddle/pull/42522): [Need approval] Add AdamW-CPU FP32 JIT assembly kernel
+- [#42106](https://github.com/PaddlePaddle/Paddle/pull/42106): New quantization model mkldnn adaption pass
+- [#42041](https://github.com/PaddlePaddle/Paddle/pull/42041): Downloading data for test_analyzer_vit_ocr
+- [#41998](https://github.com/PaddlePaddle/Paddle/pull/41998): Rea-dd conv_affine_channel fuse pass as oneDNN only pass
+- [#41562](https://github.com/PaddlePaddle/Paddle/pull/41562): Add possibility to test native config in Mkldnn tests
+- [#41420](https://github.com/PaddlePaddle/Paddle/pull/41420): Fix problem with py3.6 and test for quant2_int8_lstm
+- [#41235](https://github.com/PaddlePaddle/Paddle/pull/41235): Enabled FC of oneDNN for bert tester
+- [#40720](https://github.com/PaddlePaddle/Paddle/pull/40720): Upgrade oneDNN version to 2.6
+- [#40717](https://github.com/PaddlePaddle/Paddle/pull/40717): Correct MultipleQuantizeSquash
+- [#40542](https://github.com/PaddlePaddle/Paddle/pull/40542): Modify save_quant_model to support different input and output filenames
+- [#40187](https://github.com/PaddlePaddle/Paddle/pull/40187): Refactor elementwise op grad classes
+- [#39738](https://github.com/PaddlePaddle/Paddle/pull/39738): Add mobilenetv3_large performance test for bf16 and int8 
+- [#39400](https://github.com/PaddlePaddle/Paddle/pull/39400): Fix operator== for float16
+- [#39342](https://github.com/PaddlePaddle/Paddle/pull/39342): [Bug fix] Fixed immutable op quantization when non-quantizable op exists in multiple followed ops
+- [#39304](https://github.com/PaddlePaddle/Paddle/pull/39304): Update BF16 amp list
+- [#39298](https://github.com/PaddlePaddle/Paddle/pull/39298): Added hapi BF16 lenet script
+- [#39030](https://github.com/PaddlePaddle/Paddle/pull/39030): Changed default implementation of bfloat16 to eigen (copying files to paddle/utils)
+- [#38912](https://github.com/PaddlePaddle/Paddle/pull/38912): Update passes in quant2_int8_mkldnn_pass 
+- [#38702](https://github.com/PaddlePaddle/Paddle/pull/38702): [Bug fix] Add input data type checking in BF16 placement pass 
+- [#38643](https://github.com/PaddlePaddle/Paddle/pull/38643): add mkldnn int8 related passes and config
+- [#38622](https://github.com/PaddlePaddle/Paddle/pull/38622): Quantize nearest_interp and nearest_interp_v2
+- [#38176](https://github.com/PaddlePaddle/Paddle/pull/38176): Fix for elementwise_add_grad GetExpectedKernelType function
+- [#38019](https://github.com/PaddlePaddle/Paddle/pull/38019): Refactor cpu_quantize_pass_tester
+- [#37985](https://github.com/PaddlePaddle/Paddle/pull/37985): Add int8 nearest_interp and nearest_interp_v2  
+- [#37711](https://github.com/PaddlePaddle/Paddle/pull/37711): Revert #37558
+- [#37664](https://github.com/PaddlePaddle/Paddle/pull/37664): Changed default implementation of bfloat16 to eigen
+- [#37558](https://github.com/PaddlePaddle/Paddle/pull/37558): Changed final batch of deprecated mkldnn namespace names to new oneDNN names
+- [#37352](https://github.com/PaddlePaddle/Paddle/pull/37352): Add corner case in PTQ scale calculation
+- [#37351](https://github.com/PaddlePaddle/Paddle/pull/37351): Changed second batch of deprecated mkldnn header and function names to new oneDNN names
+- [#37104](https://github.com/PaddlePaddle/Paddle/pull/37104): Added mean op BF16 kernel
+- [#37081](https://github.com/PaddlePaddle/Paddle/pull/37081): Added BF16 Pool2d grad
+- [#37040](https://github.com/PaddlePaddle/Paddle/pull/37040): Changed first batch of deprecated mkldnn headers and function names to new oneDNN names
+- [#36995](https://github.com/PaddlePaddle/Paddle/pull/36995): [Replaced by #37664] Changed default implementation of bfloat16 to eigen
+- [#36750](https://github.com/PaddlePaddle/Paddle/pull/36750): Changed deprecated mkldnn headers and function names to new oneDNN names
+- [#36711](https://github.com/PaddlePaddle/Paddle/pull/36711): Correct conv2d int8 mkldnn UT
+- [#36265](https://github.com/PaddlePaddle/Paddle/pull/36265): Added oneDNN BF16 relu
+- [#36253](https://github.com/PaddlePaddle/Paddle/pull/36253): Added memory descriptor into tensor class
+- [#36226](https://github.com/PaddlePaddle/Paddle/pull/36226): Upgrade oneDNN to v2.4.4
+- [#35887](https://github.com/PaddlePaddle/Paddle/pull/35887): Add quant2 int8 lstm model test
+- [#35662](https://github.com/PaddlePaddle/Paddle/pull/35662): Added elementwise_sub_mkldnn operator
+- [#35599](https://github.com/PaddlePaddle/Paddle/pull/35599): Update scales when variable is unsigned
+- [#35334](https://github.com/PaddlePaddle/Paddle/pull/35334): Add fusion_lstm INT8 PTQ
+- [#35002](https://github.com/PaddlePaddle/Paddle/pull/35002): [oneDNN] Concat refactoring and disabling caching 
+- [#34820](https://github.com/PaddlePaddle/Paddle/pull/34820): Fix elementwise_add quantization
+- [#34137](https://github.com/PaddlePaddle/Paddle/pull/34137): Fix format in requantize mkldnn op
+- [#34008](https://github.com/PaddlePaddle/Paddle/pull/34008): Use CBLAS for SelectedRows elementwise add operation.
+- [#33977](https://github.com/PaddlePaddle/Paddle/pull/33977): Added OpTestTool for BF16
+- [#33749](https://github.com/PaddlePaddle/Paddle/pull/33749): Add fusion_gru and multi_gru to PTQ (Post-Training Quantization)
+- [#33601](https://github.com/PaddlePaddle/Paddle/pull/33601): [WIP] add elementwise_sub and elementwise_div
+- [#33515](https://github.com/PaddlePaddle/Paddle/pull/33515): [oneDNN] Further ops refactoring of oneDNN cache access
+- [#33295](https://github.com/PaddlePaddle/Paddle/pull/33295): Small fixes related to BF16 fusion_gru and fusion_lstm
+- [#33173](https://github.com/PaddlePaddle/Paddle/pull/33173): Add bf16 support for save and load ops
+- [#33172](https://github.com/PaddlePaddle/Paddle/pull/33172): Add lookup_table_v2 BF16 op
+- [#32870](https://github.com/PaddlePaddle/Paddle/pull/32870): Update paths to Quant models
+- [#32851](https://github.com/PaddlePaddle/Paddle/pull/32851): [oneDNN] Refactoring of softmax grad onednn kernel to match common API
+- [#32763](https://github.com/PaddlePaddle/Paddle/pull/32763): Simple authors change
+- [#32720](https://github.com/PaddlePaddle/Paddle/pull/32720): Mechanism that converts startup_program initializers to BF16
+- [#32681](https://github.com/PaddlePaddle/Paddle/pull/32681): [cherry-pick to 2.1][Added pure_bf16 mode (#32281)]
+- [#32677](https://github.com/PaddlePaddle/Paddle/pull/32677): [cherry-pick to 2.1] Add BF16 uniform random initializer (#32468)
+- [#32468](https://github.com/PaddlePaddle/Paddle/pull/32468): Add BF16 uniform random initializer
+- [#32281](https://github.com/PaddlePaddle/Paddle/pull/32281): Added pure_bf16 mode
+- [#31935](https://github.com/PaddlePaddle/Paddle/pull/31935): Add BF16 Constant Initializer and support for other initializer 
+- [#31158](https://github.com/PaddlePaddle/Paddle/pull/31158): Add bf16 GRU model test
+- [#31093](https://github.com/PaddlePaddle/Paddle/pull/31093): [oneDNN] Initial bf16 amp integration
+- [#31055](https://github.com/PaddlePaddle/Paddle/pull/31055): oneDNN support for input memory format.
+#### Interface (2)
+- [#33632](https://github.com/PaddlePaddle/Paddle/pull/33632): Add AXPY oneDNN handler
+- [#33046](https://github.com/PaddlePaddle/Paddle/pull/33046): Add AXPY oneDNN handler
+
+### Refactor (1)
+#### Refactor (1)
+- [#47779](https://github.com/PaddlePaddle/Paddle/pull/47779): mkldnn directory cleanup
+
+### Tests (9)
+#### Test Types (9)
+- [#59206](https://github.com/PaddlePaddle/Paddle/pull/59206): [OneDNN]Concat kernel fallback when input size too large and bs is small
+- [#58276](https://github.com/PaddlePaddle/Paddle/pull/58276): [OneDNN] Fc elementwise add fusion
+- [#48813](https://github.com/PaddlePaddle/Paddle/pull/48813): reshape onednn ut
+- [#48749](https://github.com/PaddlePaddle/Paddle/pull/48749): [PHI] Migrate reshape kernel
+- [#46857](https://github.com/PaddlePaddle/Paddle/pull/46857): [cherry-pick] [PHI] Enable hard_swish_grad unit test (#46621)
+- [#46621](https://github.com/PaddlePaddle/Paddle/pull/46621): Enable hard_swish_grad unit test
+- [#43244](https://github.com/PaddlePaddle/Paddle/pull/43244): Enable bert model on CPU
+- [#42001](https://github.com/PaddlePaddle/Paddle/pull/42001): Added missing test for shuffle_channel_mkldnn_detect_pass
+- [#36254](https://github.com/PaddlePaddle/Paddle/pull/36254): Updated authors.md with new intel-paddlers image
+
+### Build (4)
+#### Build/Compile (4)
+- [#49824](https://github.com/PaddlePaddle/Paddle/pull/49824): Handle repetitive code in oneDNN activation fuse passes
+- [#48850](https://github.com/PaddlePaddle/Paddle/pull/48850): reshape onednn test reimplemented
+- [#44680](https://github.com/PaddlePaddle/Paddle/pull/44680): add int8 scale calculation and conv weights quantization pass to paddle_pass_builder
+- [#37175](https://github.com/PaddlePaddle/Paddle/pull/37175): Replace custom IOHW -> OIHW reorder with build-in oneDNN reorder
+
+### Uncategorized PRs (40)
+- [#65531](https://github.com/PaddlePaddle/Paddle/pull/65531): [OneDNN][PIR] Add necessary cpu pass in OneDNN 
+- [#64661](https://github.com/PaddlePaddle/Paddle/pull/64661): [OneDNN] update OneDNN to v3.4
+- [#63051](https://github.com/PaddlePaddle/Paddle/pull/63051): [OneDNN][PIR] Add depthwise_conv_onednn_pass
+- [#57179](https://github.com/PaddlePaddle/Paddle/pull/57179): Upgrade OneDNN to v3.2
+- [#52253](https://github.com/PaddlePaddle/Paddle/pull/52253): cleanup of old TODOs
+- [#51174](https://github.com/PaddlePaddle/Paddle/pull/51174): Remove TODOs from code
+- [#48634](https://github.com/PaddlePaddle/Paddle/pull/48634): [PHI] Migrate squeeze and squeeze_grad kernels
+- [#48625](https://github.com/PaddlePaddle/Paddle/pull/48625): [PHI] Migrate elementwise_(add/mul) kernels
+- [#48360](https://github.com/PaddlePaddle/Paddle/pull/48360): Reenabled ext_reorder recording
+- [#48352](https://github.com/PaddlePaddle/Paddle/pull/48352): [PHI decoupling] Move MKLDNN code
+- [#48288](https://github.com/PaddlePaddle/Paddle/pull/48288): [PHI] Migrate batch_norm_grad kernel
+- [#48119](https://github.com/PaddlePaddle/Paddle/pull/48119): [PHI] Migrate conv_transpose kernel
+- [#48061](https://github.com/PaddlePaddle/Paddle/pull/48061): [PHI] Migrate mul_grad kernel
+- [#48023](https://github.com/PaddlePaddle/Paddle/pull/48023): [PHI] Migrate matmul_grad kernel
+- [#47818](https://github.com/PaddlePaddle/Paddle/pull/47818): Deleted mkldnn_inplace_pass code
+- [#47762](https://github.com/PaddlePaddle/Paddle/pull/47762): matmul(v1) code clean up 
+- [#47686](https://github.com/PaddlePaddle/Paddle/pull/47686): [PHI] Migrate depthwise_conv2d_grad and conv3d_grad kernels
+- [#47658](https://github.com/PaddlePaddle/Paddle/pull/47658): [PHI] Migrate depthwise_conv2d and conv3d kernels
+- [#47652](https://github.com/PaddlePaddle/Paddle/pull/47652): [PHI] Migrate batch_norm
+- [#47406](https://github.com/PaddlePaddle/Paddle/pull/47406): [PHI] Migrate softplus kernel
+- [#47339](https://github.com/PaddlePaddle/Paddle/pull/47339): [PHI] Migrate softmax kernel
+- [#46862](https://github.com/PaddlePaddle/Paddle/pull/46862): [cherry-pick] [PHI] relu6_grad kernel (#46501)
+- [#46768](https://github.com/PaddlePaddle/Paddle/pull/46768): Final changes to introduce mem_desc to be hold in Tensor
+- [#46757](https://github.com/PaddlePaddle/Paddle/pull/46757): Add fc residual pattern
+- [#46728](https://github.com/PaddlePaddle/Paddle/pull/46728): [cherry-pick] [PHI] Migrate gelu kernels (#45596)
+- [#46725](https://github.com/PaddlePaddle/Paddle/pull/46725): [cherry-pick] [PHI] migrate softmax_grad kernel (#46257)
+- [#46501](https://github.com/PaddlePaddle/Paddle/pull/46501): [PHI] relu6_grad kernel
+- [#46257](https://github.com/PaddlePaddle/Paddle/pull/46257): [PHI] migrate softmax_grad kernel
+- [#45596](https://github.com/PaddlePaddle/Paddle/pull/45596): [PHI] Migrate gelu kernels
+- [#45537](https://github.com/PaddlePaddle/Paddle/pull/45537): [PHI] Migrate scale kernel
+- [#45481](https://github.com/PaddlePaddle/Paddle/pull/45481): [PHI] Migrate gaussian_random kernel
+- [#45397](https://github.com/PaddlePaddle/Paddle/pull/45397): [PHI] Migrate relu6 and abs kernels
+- [#39231](https://github.com/PaddlePaddle/Paddle/pull/39231): Add loss conversion from uint16 to float in ProgressBar class
+- [#36426](https://github.com/PaddlePaddle/Paddle/pull/36426): Revert "Implemented LRU based cache clearing (#36290)"
+- [#36348](https://github.com/PaddlePaddle/Paddle/pull/36348): remove not needed log
+- [#35040](https://github.com/PaddlePaddle/Paddle/pull/35040): Upgrade oneDNN to v2.3.2
+- [#33229](https://github.com/PaddlePaddle/Paddle/pull/33229): Bump up to oneDNN v2.3
+- [#31870](https://github.com/PaddlePaddle/Paddle/pull/31870): OneDNN hardswish integration (#30211)
+- [#31270](https://github.com/PaddlePaddle/Paddle/pull/31270): cherry-pick #30295 and #31347: Upgrade oneDNN 2.2
+- [#31067](https://github.com/PaddlePaddle/Paddle/pull/31067): [oneDNN] Update of onednn to 2.2
